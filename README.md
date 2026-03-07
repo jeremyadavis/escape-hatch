@@ -4,63 +4,48 @@ A React Native (Expo) app that simulates an incoming phone call, giving you a be
 
 ## How It Works
 
-1. **Trigger a fake call** using one of several methods (see below)
-2. Your phone rings with a realistic incoming call screen that mimics your device's native phone app
-3. "Answer" the call and have a convincing fake conversation — the app plays realistic voice responses with natural conversational phrases
-4. Excuse yourself and walk away
+1. **Open the app** — it immediately starts ringing with a realistic incoming call screen
+2. **Answer the call** — tap accept and have a convincing fake conversation with voice responses
+3. **Excuse yourself** — end the call whenever you're ready
 
 ## Features
 
-- **Realistic Incoming Call UI** — Mimics the native iOS/Android phone app so it looks like a genuine call
-- **Conversational Voice Playback** — Plays pre-recorded or generated voice lines with standard conversation phrases so you can talk back and appear engaged
-- **Multiple Trigger Methods:**
-  - **Open the App** — Simply launch the app and the call starts ringing
-  - **Hardware Button Sequence** — Trigger a call by pressing a button combo (e.g., triple-press the volume button) without needing to open the app
-  - **Timer / Alarm** — Set a delay (e.g., "call me in 5 minutes") or schedule a specific time for the call to come in
+- **Realistic Incoming Call UI** — Platform-specific screens that closely mimic native iOS and Android phone apps
+- **Voice Conversation** — Text-to-speech plays natural conversational lines with pauses so you can talk back
+- **Auto-Ring on Launch** — Simply open the app and the call starts immediately
+- **Timer Presets** — Schedule a call for 2, 5, or 10 minutes from now
+- **Configurable Caller** — Set the caller name, photo, and label
+- **Hidden Settings** — Long-press the mute button for 5 seconds to access settings (invisible to onlookers)
+- **Call Duration Timer** — Shows a running timer during active calls for added realism
 
 ## Tech Stack
 
-- [Expo](https://expo.dev) (React Native)
+- [Expo](https://expo.dev) (React Native) with Expo Router
+- TypeScript
+- expo-speech for voice playback
+- expo-image-picker for caller photo
+- AsyncStorage for settings persistence
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js (LTS)
-- Expo CLI (`npm install -g expo-cli`)
-- iOS Simulator, Android Emulator, or a physical device with [Expo Go](https://expo.dev/go)
-
-### Installation
-
 ```bash
-git clone https://github.com/<your-org>/escape-hatch.git
-cd escape-hatch
 npm install
-```
-
-### Running the App
-
-```bash
 npx expo start
 ```
-
-Then open the app on your device or emulator using the QR code or Expo Go.
 
 ## Project Structure
 
 ```
 escape-hatch/
-├── app/                # Expo Router screens
+├── app/                # Screens (incoming call, active call, settings)
 ├── assets/             # Images, audio files, fonts
 ├── components/         # Reusable UI components
-├── constants/          # App-wide constants and config
+├── constants/          # Colors, defaults, voice scripts
+├── context/            # React Context (call state management)
 ├── hooks/              # Custom React hooks
-└── services/           # Call simulation, audio, trigger logic
+├── services/           # Audio, notification services
+└── types/              # TypeScript type definitions
 ```
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
